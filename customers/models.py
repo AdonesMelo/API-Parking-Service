@@ -11,11 +11,11 @@ class Customer(models.Model):   # Tabela de cliente
         related_name='customer',
         verbose_name='Usuário',
     )
-    name = models.CharField(max_length=100, verbose_name='Nome')
-    cpf = models.CharField(max_length=15,blank=True, null=True, verbose_name='CPF')
-    phone = models.CharField(max_length=15, blank=True, null=True, verbose_name='Telefone')
-    crated_at = models.DateTimeField(auto_now_add=True, verbose_name='Criado em')
-    updated_at = models.DateTimeField(auto_now=True, verbose_name='Atualizado em')
+    name = models.CharField(max_length=100, verbose_name='Nome',)
+    cpf = models.CharField(max_length=15,blank=True, null=True, verbose_name='CPF',)
+    phone = models.CharField(max_length=15, blank=True, null=True, verbose_name='Telefone',)
+    crated_at = models.DateTimeField(auto_now_add=True, verbose_name='Criado em',)
+    updated_at = models.DateTimeField(auto_now=True, verbose_name='Atualizado em',)
 
     class Meta:
         verbose_name = 'Cliente'
