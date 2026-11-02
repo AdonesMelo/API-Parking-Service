@@ -3,7 +3,7 @@ from django.db import models
 from vehicles.models import Vehicle
 
 class ParkingSpot(models.Model):    # Tabela de vaga de estacionamento
-    sot_number = models.CharField(max_length=10, unique=True, verbose_name='Número da Vaga',)
+    spot_number = models.CharField(max_length=10, unique=True, verbose_name='Número da Vaga',)
     is_occupied = models.BooleanField(default=False, verbose_name='Ocupada',)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Criado em',)
     updated_at = models.DateTimeField(auto_now=True, verbose_name='Atualizado em',)
@@ -13,7 +13,7 @@ class ParkingSpot(models.Model):    # Tabela de vaga de estacionamento
         verbose_name_plural = 'Vagas de Estacionamento'
 
     def __str__(self):
-        return self.sot_number
+        return self.spot_number
 
 
 class ParkingRecord(models.Model):    # Tabela de registro de estacionamento
