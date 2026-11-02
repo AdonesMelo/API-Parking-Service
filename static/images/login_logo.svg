@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <!-- Círculo Azul Principal -->
+  <circle cx="50" cy="50" r="48" fill="#1558A8" />
+  
+  <!-- Linha Branca Interna de Contorno -->
+  <circle cx="50" cy="50" r="40" fill="none" stroke="#ffffff" stroke-width="2.5" />
+  
+  <!-- Letra P Branca -->
+  <path d="M 37 25 H 55 C 64 25, 70 30, 70 39 C 70 48, 64 53, 55 53 H 48 V 75 H 37 Z M 48 35 V 43 H 54 C 57.5 43, 59.5 41.5, 59.5 39 C 59.5 36.5, 57.5 35, 54 35 Z" fill="#ffffff" />
+</svg>
