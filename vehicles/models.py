@@ -2,6 +2,7 @@ from django.db import models
 
 from customers.models import Customer
 
+
 class VehicleType(models.Model):    # Tabela de tipo de veículo
     name = models.CharField(max_length=50, unique=True, verbose_name='Nome',)
     description = models.TextField(blank=True, null=True, verbose_name='Descrição',)
@@ -17,21 +18,8 @@ class VehicleType(models.Model):    # Tabela de tipo de veículo
 
 
 class Vehicle(models.Model):    # Tabela de veículo
-    vehicle_type = models.ForeignKey(
-        VehicleType,
-        on_delete=models.PROTECT,
-        blank=True,
-        null=True,
-        verbose_name='Tipo de Veículo',
-    )
-    owner = models.ForeignKey(
-        Customer,
-        on_delete=models.PROTECT,
-        blank=True,
-        null=True,
-        related_name='vehicles',
-        verbose_name='Proprietário',
-    )
+    vehicle_type = models.ForeignKey(VehicleType, blank=True, null=True, on_delete=models.PROTECT, verbose_name='Tipo de Veículo',)
+    owner = models.ForeignKey(Customer, on_delete=models.PROTECT, blank=True, null=True, related_name='vehicles', verbose_name='Proprietário',)
     license_plate = models.CharField(max_length=10, unique=True, verbose_name='Placa',)
     brand = models.CharField(max_length=50, blank=True, null=True, verbose_name='Marca',)
     model = models.CharField(max_length=50, blank=True, null=True, verbose_name='Modelo',)

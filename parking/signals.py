@@ -4,6 +4,7 @@ from django.dispatch import receiver
 
 from parking.models import ParkingRecord
 
+
 @receiver(post_save, sender=ParkingRecord)
 def update_parking_record_status(sender, instance, created, **kwargs):
     ''' Atualiza o status da vaga de estacionamento quando um registro de estacionamento é criado ou atualizado.

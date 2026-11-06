@@ -2,6 +2,7 @@ from django.db import models
 
 from vehicles.models import Vehicle
 
+
 class ParkingSpot(models.Model):    # Tabela de vaga de estacionamento
     spot_number = models.CharField(max_length=10, unique=True, verbose_name='Número da Vaga',)
     is_occupied = models.BooleanField(default=False, verbose_name='Ocupada',)
@@ -17,18 +18,8 @@ class ParkingSpot(models.Model):    # Tabela de vaga de estacionamento
 
 
 class ParkingRecord(models.Model):    # Tabela de registro de estacionamento
-    vehicle = models.ForeignKey(
-        Vehicle,
-        on_delete=models.PROTECT,
-        related_name='parking_records',
-        verbose_name='Veículo',
-    )
-    parking_spot = models.ForeignKey(
-        ParkingSpot,
-        on_delete=models.PROTECT,
-        related_name='parking_records',
-        verbose_name='Vaga de Estacionamento',
-    )
+    vehicle = models.ForeignKey(Vehicle, on_delete=models.PROTECT, related_name='parking_records', verbose_name='Veículo',)
+    parking_spot = models.ForeignKey(ParkingSpot, on_delete=models.PROTECT, related_name='parking_records', verbose_name='Vaga de Estacionamento',)
     entry_time = models.DateTimeField(auto_now_add=True, verbose_name='Horário de Entrada',)
     exit_time = models.DateTimeField(blank=True, null=True, verbose_name='Horário de Saída',)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Criado em',)

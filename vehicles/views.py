@@ -2,6 +2,7 @@ from rest_framework.permissions import IsAdminUser, DjangoModelPermissions
 from rest_framework import viewsets
 
 from core.permissions import IsOwnerOfVehicleOrRecord
+
 from vehicles.models import VehicleType, Vehicle
 from vehicles.serializers import VehicleTypeSerializer, VehicleSerializer
 

@@ -2,6 +2,7 @@ from rest_framework.permissions import DjangoModelPermissions
 from rest_framework import viewsets
 
 from core.permissions import IsOwnerOfVehicleOrRecord
+
 from parking.models import ParkingSpot, ParkingRecord
 from parking.serializers import ParkingSpotSerializer, ParkingRecordSerializer
 
@@ -22,7 +23,6 @@ class ParkingRecordViewSet(viewsets.ModelViewSet):
         Retorna os registros de estacionamento do usuário logado, ou todos os registros se o usuário superusuário estiver logado.
         '''
         user = self.request.user
-        
         if user.is_staff:
             return ParkingRecord.objects.all()
         return ParkingRecord.objects.filter(vehicle__owner__user=user)
