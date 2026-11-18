@@ -18,14 +18,17 @@ class ParkingSpotViewSet(viewsets.ModelViewSet):
 class ParkingRecordViewSet(viewsets.ModelViewSet):
     queryset = ParkingRecord.objects.all()
     serializer_class = ParkingRecordSerializer
-    rql_filter_class = ParkingFilterClass
+    # rql_filter_class = ParkingFilterClass
     permission_classes = [DjangoModelPermissions, IsOwnerOfVehicleOrRecord]
 
     def get_queryset(self):
-        '''
-        Retorna os registros de estacionamento do usuário logado, ou todos os registros se o usuário superusuário estiver logado.
-        '''
+        if getattr(self, 'swagger_fake_view', False):
+            return ParkingRecord.objects.none()
+        
         user = self.request.user
+        if not user.is_authenticated:
+            return ParkingRecord.objects.none()
+        
         if user.is_staff:
-            return ParkingRecord.objects.all()
-        return ParkingRecord.objects.filter(vehicle__owner__user=user)
+            return ParkingRecord.objects.select_related('vehicle', 'parking_spot').all()
+        return ParkingRecord.objects.select_related('vehicle', 'parking_spot').filter(vehicle__owner__user=user)
