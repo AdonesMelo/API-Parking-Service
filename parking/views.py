@@ -24,11 +24,9 @@ class ParkingRecordViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         if getattr(self, 'swagger_fake_view', False):
             return ParkingRecord.objects.none()
-        
         user = self.request.user
         if not user.is_authenticated:
             return ParkingRecord.objects.none()
-        
         if user.is_staff:
             return ParkingRecord.objects.select_related('vehicle', 'parking_spot').all()
         return ParkingRecord.objects.select_related('vehicle', 'parking_spot').filter(vehicle__owner__user=user)
