@@ -217,3 +217,5 @@ SPECTACULAR_SETTINGS = {
     'SWAGGER_UI_FAVICON_HREF': 'SIDECAR',
     'REDOC_DIST': 'SIDECAR',
 }
+
+CELERY_BROKER_URL = 'amqp://guest:guest@api_rabbitmq:5672//'
