@@ -86,8 +86,12 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'api_parking_service',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': 'api_parking_db',
+        'PORT': '5432',
     }
 }
 
