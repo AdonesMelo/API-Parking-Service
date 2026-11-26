@@ -1,15 +1,17 @@
 FROM python:3.13-slim
 
-WORKDIR /api_parking_service
+WORKDIR /parking_service
 
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-RUN apt update
+RUN apt update && apt install -y libatomic1
 
 COPY . .
 
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
+RUN playwright install-deps
+RUN playwright install
 
 EXPOSE 8000
