@@ -6,7 +6,7 @@ from vehicles.models import Vehicle
 
 @shared_task
 def complete_vehicle_date(license_plate):
-    url = f'https://www.pycodebr.com.br/placas-carros/'
+    url = 'https://www.pycodebr.com.br/placas-carros/'
 
     # Inicializa as variáveis para armazenar os dados do veículo
     brand = None
