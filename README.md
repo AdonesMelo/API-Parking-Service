@@ -1,4 +1,4 @@
-# 🚗 Parking Service API
+# 🚗 API Parking Service
 
 Sistema completo de gerenciamento de estacionamento desenvolvido com **Django** e **Django REST Framework**, projetado com arquitetura orientada a eventos, processamento assíncrono, automação de consulta de placas veiculares e containerização completa com Docker.
 
@@ -22,7 +22,7 @@ Sistema completo de gerenciamento de estacionamento desenvolvido com **Django** 
 
 ## 🎯 Sobre o Projeto
 
-O **Parking Service API** gerencia o fluxo completo de um estacionamento: cadastro de clientes, controle de veículos e categorias, disponibilidade de vagas em tempo real e histórico de entradas e saídas.
+O **API Parking Service** gerencia o fluxo completo de um estacionamento: cadastro de clientes, controle de veículos e categorias, disponibilidade de vagas em tempo real e histórico de entradas e saídas.
 
 Além do CRUD tradicional, o sistema automatiza tarefas críticas através de **Django Signals**, filas com **Celery + RabbitMQ/Redis** e web scraping com **Playwright** para enriquecimento automático dos dados dos veículos a partir da placa.
 
